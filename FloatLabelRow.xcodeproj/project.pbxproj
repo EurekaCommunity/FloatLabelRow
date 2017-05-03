@@ -11,6 +11,10 @@
 		28F828811C494B2C00330CF4 /* FloatLabelRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F828801C494B2C00330CF4 /* FloatLabelRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28F828881C494B2C00330CF4 /* FloatLabelRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F8287D1C494B2C00330CF4 /* FloatLabelRow.framework */; };
 		28F8289A1C494B4200330CF4 /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F828991C494B4200330CF4 /* iOS.swift */; };
+		9A61F6DD1EBA608900CBE062 /* FloatLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61F6DC1EBA608900CBE062 /* FloatLabelRow.swift */; };
+		9A61F6E51EBA664200CBE062 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6DF1EBA660E00CBE062 /* Eureka.framework */; };
+		9A61F6E71EBA664F00CBE062 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */; };
+		9A61F6F31EBA6B9100CBE062 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6DF1EBA660E00CBE062 /* Eureka.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,9 @@
 		28F8288E1C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
 		28F828991C494B4200330CF4 /* iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOS.swift; sourceTree = "<group>"; };
 		28F8289B1C494BF100330CF4 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = Example/Playground.playground; sourceTree = "<group>"; };
+		9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		9A61F6DC1EBA608900CBE062 /* FloatLabelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelRow.swift; sourceTree = "<group>"; };
+		9A61F6DF1EBA660E00CBE062 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A61F6E51EBA664200CBE062 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28F828881C494B2C00330CF4 /* FloatLabelRow.framework in Frameworks */,
+				9A61F6F31EBA6B9100CBE062 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +69,7 @@
 				28F828971C494B4200330CF4 /* Sources */,
 				28F8288B1C494B2C00330CF4 /* Tests */,
 				28F8287E1C494B2C00330CF4 /* Products */,
+				9A61F6ED1EBA6A1400CBE062 /* Dependencies */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,8 +98,18 @@
 				28F828991C494B4200330CF4 /* iOS.swift */,
 				28F828801C494B2C00330CF4 /* FloatLabelRow.h */,
 				28F828821C494B2C00330CF4 /* Info.plist */,
+				9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */,
+				9A61F6DC1EBA608900CBE062 /* FloatLabelRow.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		9A61F6ED1EBA6A1400CBE062 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				9A61F6DF1EBA660E00CBE062 /* Eureka.framework */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A61F6E71EBA664F00CBE062 /* FloatLabelTextField.swift in Sources */,
+				9A61F6DD1EBA608900CBE062 /* FloatLabelRow.swift in Sources */,
 				28F8289A1C494B4200330CF4 /* iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +348,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -344,6 +370,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -358,6 +388,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.FloatLabelRowTests;
@@ -371,6 +405,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.FloatLabelRowTests;

@@ -13,6 +13,9 @@
 		28F828D51C4B714D00330CF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F828D31C4B714D00330CF4 /* Main.storyboard */; };
 		28F828D71C4B714D00330CF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F828D61C4B714D00330CF4 /* Assets.xcassets */; };
 		28F828DA1C4B714D00330CF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F828D81C4B714D00330CF4 /* LaunchScreen.storyboard */; };
+		9A61F6F61EBA6BF400CBE062 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6EF1EBA6A7800CBE062 /* Eureka.framework */; };
+		9A61F6F71EBA6BF400CBE062 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6EF1EBA6A7800CBE062 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AB0DCD51EBA6E37000AA210 /* FloatLabelRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6FF1EBA6DF100CBE062 /* FloatLabelRow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,16 +26,16 @@
 			remoteGlobalIDString = 28F828CB1C4B714D00330CF4;
 			remoteInfo = Example;
 		};
-		8F9CAB211D89C756006E1824 /* PBXContainerItemProxy */ = {
+		9A61F6FE1EBA6DF100CBE062 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 287D0A741C4B7B26004566D6 /* FloatLabelRow.xcodeproj */;
+			containerPortal = 9A61F6F91EBA6DF100CBE062 /* FloatLabelRow.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 28F8287D1C494B2C00330CF4;
 			remoteInfo = FloatLabelRow;
 		};
-		8F9CAB231D89C756006E1824 /* PBXContainerItemProxy */ = {
+		9A61F7001EBA6DF100CBE062 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 287D0A741C4B7B26004566D6 /* FloatLabelRow.xcodeproj */;
+			containerPortal = 9A61F6F91EBA6DF100CBE062 /* FloatLabelRow.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 28F828871C494B2C00330CF4;
 			remoteInfo = FloatLabelRowTests;
@@ -40,12 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		287D0A811C4B7B55004566D6 /* Embed Frameworks */ = {
+		9A61F6F81EBA6BF400CBE062 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9A61F6F71EBA6BF400CBE062 /* Eureka.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		287D0A711C4B7877004566D6 /* ExampleUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
-		287D0A741C4B7B26004566D6 /* FloatLabelRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FloatLabelRow.xcodeproj; path = ../FloatLabelRow.xcodeproj; sourceTree = "<group>"; };
 		28F828CC1C4B714D00330CF4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F828CF1C4B714D00330CF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Example/AppDelegate.swift; sourceTree = "<group>"; };
 		28F828D11C4B714D00330CF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Example/ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +67,8 @@
 		28F828DB1C4B714D00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Example/Info.plist; sourceTree = "<group>"; };
 		28F828E01C4B714D00330CF4 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F828E61C4B714D00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A61F6EF1EBA6A7800CBE062 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = ../Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
+		9A61F6F91EBA6DF100CBE062 /* FloatLabelRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FloatLabelRow.xcodeproj; path = ../FloatLabelRow.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB0DCD51EBA6E37000AA210 /* FloatLabelRow.framework in Frameworks */,
+				9A61F6F61EBA6BF400CBE062 /* Eureka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,10 +94,11 @@
 		28F828C31C4B714D00330CF4 = {
 			isa = PBXGroup;
 			children = (
+				9A61F6F91EBA6DF100CBE062 /* FloatLabelRow.xcodeproj */,
 				28F828CE1C4B714D00330CF4 /* Example */,
 				28F828E31C4B714D00330CF4 /* ExampleUITests */,
 				28F828CD1C4B714D00330CF4 /* Products */,
-				287D0A741C4B7B26004566D6 /* FloatLabelRow.xcodeproj */,
+				9A61F6EE1EBA6A5900CBE062 /* Dependencies */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,11 +133,19 @@
 			path = ExampleUITests;
 			sourceTree = "<group>";
 		};
-		8F9CAB1D1D89C755006E1824 /* Products */ = {
+		9A61F6EE1EBA6A5900CBE062 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				8F9CAB221D89C756006E1824 /* FloatLabelRow.framework */,
-				8F9CAB241D89C756006E1824 /* FloatLabelRowTests.xctest */,
+				9A61F6EF1EBA6A7800CBE062 /* Eureka.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		9A61F6FA1EBA6DF100CBE062 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A61F6FF1EBA6DF100CBE062 /* FloatLabelRow.framework */,
+				9A61F7011EBA6DF100CBE062 /* FloatLabelRowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,7 +160,8 @@
 				28F828C81C4B714D00330CF4 /* Sources */,
 				28F828C91C4B714D00330CF4 /* Frameworks */,
 				28F828CA1C4B714D00330CF4 /* Resources */,
-				287D0A811C4B7B55004566D6 /* Embed Frameworks */,
+				9A61F6F81EBA6BF400CBE062 /* Embed Frameworks */,
+				9A61F6EC1EBA687400CBE062 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -184,7 +201,9 @@
 				TargetAttributes = {
 					28F828CB1C4B714D00330CF4 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 6F2G55XL63;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 					28F828DF1C4B714D00330CF4 = {
 						CreatedOnToolsVersion = 7.2;
@@ -206,8 +225,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 8F9CAB1D1D89C755006E1824 /* Products */;
-					ProjectRef = 287D0A741C4B7B26004566D6 /* FloatLabelRow.xcodeproj */;
+					ProductGroup = 9A61F6FA1EBA6DF100CBE062 /* Products */;
+					ProjectRef = 9A61F6F91EBA6DF100CBE062 /* FloatLabelRow.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -219,18 +238,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		8F9CAB221D89C756006E1824 /* FloatLabelRow.framework */ = {
+		9A61F6FF1EBA6DF100CBE062 /* FloatLabelRow.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = FloatLabelRow.framework;
-			remoteRef = 8F9CAB211D89C756006E1824 /* PBXContainerItemProxy */;
+			remoteRef = 9A61F6FE1EBA6DF100CBE062 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		8F9CAB241D89C756006E1824 /* FloatLabelRowTests.xctest */ = {
+		9A61F7011EBA6DF100CBE062 /* FloatLabelRowTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = FloatLabelRowTests.xctest;
-			remoteRef = 8F9CAB231D89C756006E1824 /* PBXContainerItemProxy */;
+			remoteRef = 9A61F7001EBA6DF100CBE062 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -254,6 +273,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9A61F6EC1EBA687400CBE062 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/../Carthage/Build/iOS/Eureka.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28F828C81C4B714D00330CF4 /* Sources */ = {
@@ -394,12 +430,15 @@
 		28F828EA1C4B714D00330CF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6F2G55XL63;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(SRCROOT)/../Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -407,12 +446,15 @@
 		28F828EB1C4B714D00330CF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 6F2G55XL63;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(SRCROOT)/../Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xmartlabs.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
