@@ -63,6 +63,7 @@ public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell whe
     
     open override func update() {
         super.update()
+        
         textLabel?.text = nil
         detailTextLabel?.text = nil
         floatLabelTextField.attributedPlaceholder = NSAttributedString(string: row.title ?? "", attributes: [NSForegroundColorAttributeName: UIColor.lightGray])
@@ -70,6 +71,7 @@ public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell whe
         floatLabelTextField.isEnabled = !row.isDisabled
         floatLabelTextField.titleTextColour = .lightGray
         floatLabelTextField.alpha = row.isDisabled ? 0.6 : 1
+        
     }
     
     open override func cellCanBecomeFirstResponder() -> Bool {
@@ -89,46 +91,38 @@ public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell whe
         let metrics = ["vMargin":8.0]
         return NSLayoutConstraint.constraints(withVisualFormat: "H:|-[floatLabeledTextField]-|", options: .alignAllLastBaseline, metrics: metrics, views: views) + NSLayoutConstraint.constraints(withVisualFormat: "V:|-(vMargin)-[floatLabeledTextField]-(vMargin)-|", options: .alignAllLastBaseline, metrics: metrics, views: views)
     }
-    
-    public func textFieldDidChange(_ textField : UITextField){
+
+    open func textFieldDidChange(_ textField: UITextField) {
+        
         guard let textValue = textField.text else {
             row.value = nil
             return
         }
-        if let fieldRow = row as? FormatterConformance, let formatter = fieldRow.formatter {
-            if fieldRow.useFormatterDuringInput {
-                let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
-                let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
-                if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
-                    row.value = value.pointee as? T
-                    if var selStartPos = textField.selectedTextRange?.start {
-                        let oldVal = textField.text
-                        textField.text = row.displayValueFor?(row.value)
-                        if let f = formatter as? FormatterProtocol {
-                            selStartPos = f.getNewPosition(forPosition: selStartPos, inTextInput: textField, oldValue: oldVal, newValue: textField.text)
-                        }
-                        textField.selectedTextRange = textField.textRange(from: selStartPos, to: selStartPos)
-                    }
-                    return
-                }
-            }
-            else {
-                let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
-                let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
-                if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
-                    row.value = value.pointee as? T
-                }
+        guard let fieldRow = row as? FormatterConformance, let formatter = fieldRow.formatter else {
+            row.value = textValue.isEmpty ? nil : (T.init(string: textValue) ?? row.value)
+            return
+        }
+        if fieldRow.useFormatterDuringInput {
+            let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
+            let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
+            if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
+                row.value = value.pointee as? T
+                guard var selStartPos = textField.selectedTextRange?.start else { return }
+                let oldVal = textField.text
+                textField.text = row.displayValueFor?(row.value)
+                selStartPos = (formatter as? FormatterProtocol)?.getNewPosition(forPosition: selStartPos, inTextInput: textField, oldValue: oldVal, newValue: textField.text) ?? selStartPos
+                textField.selectedTextRange = textField.textRange(from: selStartPos, to: selStartPos)
                 return
             }
+        } else {
+            let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
+            let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
+            if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
+                row.value = value.pointee as? T
+            } else {
+                row.value = textValue.isEmpty ? nil : (T.init(string: textValue) ?? row.value)
+            }
         }
-        guard !textValue.isEmpty else {
-            row.value = nil
-            return
-        }
-        guard let newValue = T.init(string: textValue) else {
-            return
-        }
-        row.value = newValue
     }
     
     
@@ -157,7 +151,28 @@ public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell whe
         textFieldDidChange(textField)
         textField.text = displayValue(useFormatter: (row as? FormatterConformance)?.formatter != nil)
     }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return formViewController()?.textInputShouldReturn(textField, cell: self) ?? true
+    }
+    
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return formViewController()?.textInput(textField, shouldChangeCharactersInRange:range, replacementString:string, cell: self) ?? true
+    }
+    
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return formViewController()?.textInputShouldBeginEditing(textField, cell: self) ?? true
+    }
+    
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return formViewController()?.textInputShouldClear(textField, cell: self) ?? true
+    }
+    
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        return formViewController()?.textInputShouldEndEditing(textField, cell: self) ?? true
+    }
 }
+
 
 public class TextFloatLabelCell : _FloatLabelCell<String>, CellType {
     
@@ -195,7 +210,7 @@ public class IntFloatLabelCell : _FloatLabelCell<Int>, CellType {
     }
 }
 
-public class DecimalFloatLabelCell : _FloatLabelCell<Float>, CellType {
+public class DecimalFloatLabelCell : _FloatLabelCell<Double>, CellType {
     
     required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -208,8 +223,11 @@ public class DecimalFloatLabelCell : _FloatLabelCell<Float>, CellType {
     public override func setup() {
         super.setup()
         textField?.keyboardType = .decimalPad
+        textField.autocorrectionType = .no
     }
 }
+
+
 
 public class URLFloatLabelCell : _FloatLabelCell<URL>, CellType {
     
@@ -352,68 +370,89 @@ public class ZipCodeFloatLabelCell: _FloatLabelCell<String>, CellType {
     }
 }
 
+// MARK: Rows with formatter
+open class _IntFloatRow: FloatLabelRow<IntFloatLabelCell> {
+    public required init(tag: String?) {
+        super.init(tag: tag)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = Locale.current
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 0
+        formatter = numberFormatter
+    }
+}
+
+open class _DecimalFloatRow: FloatLabelRow<DecimalFloatLabelCell> {
+    public required init(tag: String?) {
+        super.init(tag: tag)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = Locale.current
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 2
+        formatter = numberFormatter
+    }
+}
 
 //MARK: FloatLabelRow
-open class FloatFieldRow<Cell: CellType>: FormatteableRow<Cell> where Cell: BaseCell, Cell: TextFieldCell {
+open class FloatLabelRow<Cell: CellType>: FormatteableRow<Cell> where Cell: BaseCell, Cell: TextFieldCell {
     
-    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-public final class TextFloatLabelRow: FloatFieldRow<TextFloatLabelCell>, RowType {
+public final class TextFloatLabelRow: FloatLabelRow<TextFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class IntFloatLabelRow: FloatFieldRow<IntFloatLabelCell>, RowType {
+public final class IntFloatLabelRow: _IntFloatRow, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class DecimalFloatLabelRow: FloatFieldRow<DecimalFloatLabelCell>, RowType {
+public final class DecimalFloatLabelRow: _DecimalFloatRow, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class URLFloatLabelRow: FloatFieldRow<URLFloatLabelCell>, RowType {
+public final class URLFloatLabelRow: FloatLabelRow<URLFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class TwitterFloatLabelRow: FloatFieldRow<TwitterFloatLabelCell>, RowType {
+public final class TwitterFloatLabelRow: FloatLabelRow<TwitterFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class AccountFloatLabelRow: FloatFieldRow<AccountFloatLabelCell>, RowType {
+public final class AccountFloatLabelRow: FloatLabelRow<AccountFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class PasswordFloatLabelRow: FloatFieldRow<PasswordFloatLabelCell>, RowType {
+public final class PasswordFloatLabelRow: FloatLabelRow<PasswordFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class NameFloatLabelRow: FloatFieldRow<NameFloatLabelCell>, RowType {
+public final class NameFloatLabelRow: FloatLabelRow<NameFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class EmailFloatLabelRow: FloatFieldRow<EmailFloatLabelCell>, RowType {
+public final class EmailFloatLabelRow: FloatLabelRow<EmailFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
-public final class PhoneFloatLabelRow: FloatFieldRow<PhoneFloatLabelCell>, RowType {
+public final class PhoneFloatLabelRow: FloatLabelRow<PhoneFloatLabelCell>, RowType {
     public required init(tag: String?) {
         super.init(tag: tag)
     }
 }
 
-public final class ZipCodeFloatLabelRow: FloatFieldRow<ZipCodeFloatLabelCell>, RowType {
+public final class ZipCodeFloatLabelRow: FloatLabelRow<ZipCodeFloatLabelCell>, RowType {
     required public init(tag: String?) {
         super.init(tag: tag)
     }

@@ -150,8 +150,6 @@ import UIKit
         return r.integral
     }
     
-    // MARK:- Public Methods
-    
     // MARK:- Private Methods
     private func setup() {
         borderStyle = UITextBorderStyle.none

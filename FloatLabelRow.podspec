@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   #   'FloatLabelRow' => ['FloatLabelRow/Sources/**/*.xib']
   # }
   # s.ios.frameworks = 'UIKit', 'Foundation'
-  # s.dependency 'Eureka', '~> 1.0'
+  s.dependency 'Eureka', '~> 3.0'
 end
