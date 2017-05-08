@@ -15,7 +15,10 @@ class HomeViewController : FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        form +++ Section()
+        form +++
+            Section() {
+                $0.header = HeaderFooterView<LogoView>(.class)
+            }
             <<< ButtonRow("Field row label examples") {
                 $0.title = $0.tag
                 $0.presentationMode = .segueName(segueName: "RowsExampleViewControllerSegue", onDismiss: nil)
@@ -27,111 +30,111 @@ class HomeViewController : FormViewController {
     }
 }
 
-
+// MARK: Class RowsExampleViewController - Default provided FieldRow types
 class RowsExampleViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        form +++ Section("Field Row Label examples")
-            <<< TextFloatLabelRow() {
-                $0.title = "Text Field"
-                $0.value = "Placeholder"
-            }
-            <<< IntFloatLabelRow() {
-                $0.title = "Int field"
-                $0.value = 2017
-            }
-            <<< DecimalFloatLabelRow() {
-                $0.title = "Decimal field"
-                $0.value = 2017
-                $0.formatter = DecimalFormatter()
-                $0.useFormatterDuringInput = true
-            }
-            <<< URLFloatLabelRow() {
-                $0.title = "URL field"
-                $0.value = URL(string: "http://xmartlabs.com")
-            }
-            <<< TwitterFloatLabelRow() {
-                $0.title = "Twitter field"
-                $0.value = "@xmartlabs"
-            }
-            <<< AccountFloatLabelRow() {
-                $0.title = "Account field"
-                $0.value = "Xmartlabs"
-            }
-            <<< PasswordFloatLabelRow() {
-                $0.title = "Password field"
-                $0.value = "password"
-            }
-            <<< NameFloatLabelRow() {
-                $0.title = "Name field"
-                $0.value = "Xmartlabs"
-            }
-            <<< EmailFloatLabelRow() {
-                $0.title = "Email field"
-                $0.value = "hello@xmartlabs"
-            }
-            <<< PhoneFloatLabelRow() {
-                $0.title = "Phone field (disabled)"
-                $0.value = "+598 9898983510"
-                $0.disabled = true
-            }
-            <<< ZipCodeFloatLabelRow() {
-                $0.title = "Zip code field"
-                $0.value = "90210"
-            }
+        form +++
+            Section(header: "Field Row Label examples", footer: "Field rows provided by default")
+                <<< TextFloatLabelRow() {
+                    $0.title = "Text Field"
+                    $0.value = "Placeholder"
+                }
+                <<< IntFloatLabelRow() {
+                    $0.title = "Int field"
+                    $0.value = 2017
+                }
+                <<< DecimalFloatLabelRow() {
+                    $0.title = "Decimal field"
+                    $0.value = 2017
+                    $0.formatter = DecimalFormatter()
+                    $0.useFormatterDuringInput = true
+                }
+                <<< URLFloatLabelRow() {
+                    $0.title = "URL field"
+                    $0.value = URL(string: "http://xmartlabs.com")
+                }
+                <<< TwitterFloatLabelRow() {
+                    $0.title = "Twitter field"
+                    $0.value = "@xmartlabs"
+                }
+                <<< AccountFloatLabelRow() {
+                    $0.title = "Account field"
+                    $0.value = "Xmartlabs"
+                }
+                <<< PasswordFloatLabelRow() {
+                    $0.title = "Password field"
+                    $0.value = "password"
+                }
+                <<< NameFloatLabelRow() {
+                    $0.title = "Name field"
+                    $0.value = "Xmartlabs"
+                }
+                <<< EmailFloatLabelRow() {
+                    $0.title = "Email field"
+                    $0.value = "hello@xmartlabs"
+                }
+                <<< PhoneFloatLabelRow() {
+                    $0.title = "Phone field (disabled)"
+                    $0.value = "+598 9898983510"
+                    $0.disabled = true
+                }
+                <<< ZipCodeFloatLabelRow() {
+                    $0.title = "Zip code field"
+                    $0.value = "90210"
+                }
     }
     
 }
 
-//MARK: FormatterExample
+//MARK: Class FormatterExample - Native and Custom formatters
 class FormatterExample : FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
             
-         form +++ Section("Number formatters")
-            <<< DecimalFloatLabelRow() {
-                $0.title = "Scientific style"
-                $0.value = 2017
-                let formatter = NumberFormatter()
-                formatter.locale = .current
-                formatter.numberStyle = .scientific
-                $0.formatter = formatter
-            }
-            <<< IntFloatLabelRow() {
-                $0.title = "Spell out style"
-                $0.value = 2017
-                let formatter = NumberFormatter()
-                formatter.locale = .current
-                formatter.numberStyle = .spellOut
-                $0.formatter = formatter
-            }
-            <<< DecimalFloatLabelRow() {
-                $0.title = "Energy: Jules to calories"
-                $0.value = 100.0
-                let formatter = EnergyFormatter()
-                $0.formatter = formatter
-            }
-            <<< IntFloatLabelRow() {
-                $0.title = "Weight: Kg to lb"
-                $0.value = 1000
-                $0.formatter = MassFormatter()
-            }
+        form +++
+            Section(header: "Number formatters", footer: "Native formatters")
+                <<< DecimalFloatLabelRow() {
+                    $0.title = "Scientific style"
+                    $0.value = 2017
+                    let formatter = NumberFormatter()
+                    formatter.locale = .current
+                    formatter.numberStyle = .scientific
+                    $0.formatter = formatter
+                }
+                <<< IntFloatLabelRow() {
+                    $0.title = "Spell out style"
+                    $0.value = 2017
+                    let formatter = NumberFormatter()
+                    formatter.locale = .current
+                    formatter.numberStyle = .spellOut
+                    $0.formatter = formatter
+                }
+                <<< DecimalFloatLabelRow() {
+                    $0.title = "Energy: Jules to calories"
+                    $0.value = 100.0
+                    let formatter = EnergyFormatter()
+                    $0.formatter = formatter
+                }
+                <<< IntFloatLabelRow() {
+                    $0.title = "Weight: Kg to lb"
+                    $0.value = 1000
+                    $0.formatter = MassFormatter()
+                }
             
-        +++ Section("Custom formatter")
-            <<< DecimalFloatLabelRow() {
-                $0.title = "Currency style"
-                $0.value = 2000.00
-                $0.useFormatterDuringInput = true
-                let formatter = CurrencyFormatter()
-                formatter.locale = .current
-                formatter.numberStyle = .currency
-                $0.formatter = formatter
-            }
-
+            +++ Section(header: "Custom formatter", footer: "Custom formatter: CurrencyFormatter")
+                <<< DecimalFloatLabelRow() {
+                    $0.title = "Currency style"
+                    $0.value = 2000.00
+                    $0.useFormatterDuringInput = true
+                    let formatter = CurrencyFormatter()
+                    formatter.locale = .current
+                    formatter.numberStyle = .currency
+                    $0.formatter = formatter
+                }
     }
 
     class CurrencyFormatter : NumberFormatter, FormatterProtocol {
@@ -148,4 +151,31 @@ class FormatterExample : FormViewController {
         
     }
 
+}
+
+// MARK: Logo view
+class LogoViewNib: UIView {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+}
+
+class LogoView: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        let imageView = UIImageView(image: UIImage(named: "Xmartlabs"))
+        imageView.frame = CGRect(x: 0, y: 0, width: 318, height: 130)
+        imageView.autoresizingMask = .flexibleWidth
+        self.frame = CGRect(x: 0, y: 0, width: 318, height: 130)
+        imageView.contentMode = .scaleAspectFit
+        addSubview(imageView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
