@@ -10,7 +10,6 @@
 		287D0A6E1C4B73BD004566D6 /* FloatLabelRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287D0A6D1C4B73BD004566D6 /* FloatLabelRowTests.swift */; };
 		28F828811C494B2C00330CF4 /* FloatLabelRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F828801C494B2C00330CF4 /* FloatLabelRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28F828881C494B2C00330CF4 /* FloatLabelRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F8287D1C494B2C00330CF4 /* FloatLabelRow.framework */; };
-		28F8289A1C494B4200330CF4 /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F828991C494B4200330CF4 /* iOS.swift */; };
 		9A61F6DD1EBA608900CBE062 /* FloatLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61F6DC1EBA608900CBE062 /* FloatLabelRow.swift */; };
 		9A61F6E51EBA664200CBE062 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6DF1EBA660E00CBE062 /* Eureka.framework */; };
 		9A61F6E71EBA664F00CBE062 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */; };
@@ -34,7 +33,6 @@
 		28F828821C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F828871C494B2C00330CF4 /* FloatLabelRowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatLabelRowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F8288E1C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
-		28F828991C494B4200330CF4 /* iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOS.swift; sourceTree = "<group>"; };
 		28F8289B1C494BF100330CF4 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = Example/Playground.playground; sourceTree = "<group>"; };
 		9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
 		9A61F6DC1EBA608900CBE062 /* FloatLabelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelRow.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 		28F828971C494B4200330CF4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				28F828991C494B4200330CF4 /* iOS.swift */,
 				28F828801C494B2C00330CF4 /* FloatLabelRow.h */,
 				28F828821C494B2C00330CF4 /* Info.plist */,
 				9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */,
@@ -223,7 +220,6 @@
 			files = (
 				9A61F6E71EBA664F00CBE062 /* FloatLabelTextField.swift in Sources */,
 				9A61F6DD1EBA608900CBE062 /* FloatLabelRow.swift in Sources */,
-				28F8289A1C494B4200330CF4 /* iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
