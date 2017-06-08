@@ -10,8 +10,6 @@
 		287D0A6E1C4B73BD004566D6 /* FloatLabelRowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287D0A6D1C4B73BD004566D6 /* FloatLabelRowTests.swift */; };
 		28F828811C494B2C00330CF4 /* FloatLabelRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F828801C494B2C00330CF4 /* FloatLabelRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28F828881C494B2C00330CF4 /* FloatLabelRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F8287D1C494B2C00330CF4 /* FloatLabelRow.framework */; };
-		28F8289A1C494B4200330CF4 /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F828991C494B4200330CF4 /* iOS.swift */; };
-		5B025C49EF122C025EEB1D1D /* Pods_FloatLabelRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6688C072EC84713099209953 /* Pods_FloatLabelRow.framework */; };
 		9A61F6DD1EBA608900CBE062 /* FloatLabelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61F6DC1EBA608900CBE062 /* FloatLabelRow.swift */; };
 		9A61F6E51EBA664200CBE062 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6DF1EBA660E00CBE062 /* Eureka.framework */; };
 		9A61F6E71EBA664F00CBE062 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */; };
@@ -35,7 +33,6 @@
 		28F828821C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F828871C494B2C00330CF4 /* FloatLabelRowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatLabelRowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F8288E1C494B2C00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
-		28F828991C494B4200330CF4 /* iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOS.swift; sourceTree = "<group>"; };
 		28F8289B1C494BF100330CF4 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = Example/Playground.playground; sourceTree = "<group>"; };
 		62D452821D7ACA8A74B470D9 /* Pods-FloatLabelRow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FloatLabelRow.release.xcconfig"; path = "Pods/Target Support Files/Pods-FloatLabelRow/Pods-FloatLabelRow.release.xcconfig"; sourceTree = "<group>"; };
 		6688C072EC84713099209953 /* Pods_FloatLabelRow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FloatLabelRow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +48,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A61F6E51EBA664200CBE062 /* Eureka.framework in Frameworks */,
-				5B025C49EF122C025EEB1D1D /* Pods_FloatLabelRow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +98,6 @@
 		28F828971C494B4200330CF4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				28F828991C494B4200330CF4 /* iOS.swift */,
 				28F828801C494B2C00330CF4 /* FloatLabelRow.h */,
 				28F828821C494B2C00330CF4 /* Info.plist */,
 				9A61F6DA1EBA5FE900CBE062 /* FloatLabelTextField.swift */,
@@ -154,12 +149,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28F828911C494B2C00330CF4 /* Build configuration list for PBXNativeTarget "FloatLabelRow" */;
 			buildPhases = (
-				3FA138A997C6F78327264F05 /* [CP] Check Pods Manifest.lock */,
 				28F828781C494B2C00330CF4 /* Sources */,
 				28F828791C494B2C00330CF4 /* Frameworks */,
 				28F8287A1C494B2C00330CF4 /* Headers */,
 				28F8287B1C494B2C00330CF4 /* Resources */,
-				3B099752217111FDD1AE5087 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,39 +235,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3B099752217111FDD1AE5087 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FloatLabelRow/Pods-FloatLabelRow-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3FA138A997C6F78327264F05 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		28F828781C494B2C00330CF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -282,7 +242,6 @@
 			files = (
 				9A61F6E71EBA664F00CBE062 /* FloatLabelTextField.swift in Sources */,
 				9A61F6DD1EBA608900CBE062 /* FloatLabelRow.swift in Sources */,
-				28F8289A1C494B4200330CF4 /* iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
