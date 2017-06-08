@@ -25,6 +25,7 @@
 import UIKit
 
 @IBDesignable public class FloatLabelTextField: UITextField {
+    
     let animationDuration = 0.3
     var title = UILabel()
     
@@ -201,4 +202,5 @@ import UIKit
             self.title.frame = r
         })
     }
+    
 }

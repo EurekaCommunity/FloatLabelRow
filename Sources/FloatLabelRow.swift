@@ -71,7 +71,6 @@ public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell whe
         floatLabelTextField.isEnabled = !row.isDisabled
         floatLabelTextField.titleTextColour = .lightGray
         floatLabelTextField.alpha = row.isDisabled ? 0.6 : 1
-        
     }
     
     open override func cellCanBecomeFirstResponder() -> Bool {
@@ -93,7 +92,6 @@ public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell whe
     }
 
     open func textFieldDidChange(_ textField: UITextField) {
-        
         guard let textValue = textField.text else {
             row.value = nil
             return
@@ -171,6 +169,7 @@ public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell whe
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return formViewController()?.textInputShouldEndEditing(textField, cell: self) ?? true
     }
+    
 }
 
 
@@ -190,6 +189,7 @@ public class TextFloatLabelCell : _FloatLabelCell<String>, CellType {
         textField?.autocapitalizationType = .sentences
         textField?.keyboardType = .default
     }
+    
 }
 
 public class IntFloatLabelCell : _FloatLabelCell<Int>, CellType {
@@ -208,6 +208,7 @@ public class IntFloatLabelCell : _FloatLabelCell<Int>, CellType {
         textField?.autocapitalizationType = .none
         textField?.keyboardType = .numberPad
     }
+    
 }
 
 public class DecimalFloatLabelCell : _FloatLabelCell<Double>, CellType {
@@ -225,8 +226,8 @@ public class DecimalFloatLabelCell : _FloatLabelCell<Double>, CellType {
         textField?.keyboardType = .decimalPad
         textField.autocorrectionType = .no
     }
+    
 }
-
 
 
 public class URLFloatLabelCell : _FloatLabelCell<URL>, CellType {
@@ -243,6 +244,7 @@ public class URLFloatLabelCell : _FloatLabelCell<URL>, CellType {
         super.setup()
         textField?.keyboardType = .URL
     }
+    
 }
 
 public class TwitterFloatLabelCell : _FloatLabelCell<String>, CellType {
@@ -261,6 +263,7 @@ public class TwitterFloatLabelCell : _FloatLabelCell<String>, CellType {
         textField?.autocapitalizationType = .none
         textField?.keyboardType = .twitter
     }
+    
 }
 
 public class AccountFloatLabelCell : _FloatLabelCell<String>, CellType {
@@ -279,6 +282,7 @@ public class AccountFloatLabelCell : _FloatLabelCell<String>, CellType {
         textField?.autocapitalizationType = .none
         textField?.keyboardType = .asciiCapable
     }
+    
 }
 
 public class PasswordFloatLabelCell : _FloatLabelCell<String>, CellType {
@@ -298,6 +302,7 @@ public class PasswordFloatLabelCell : _FloatLabelCell<String>, CellType {
         textField?.keyboardType = .asciiCapable
         textField?.isSecureTextEntry = true
     }
+    
 }
 
 public class NameFloatLabelCell : _FloatLabelCell<String>, CellType {
@@ -316,6 +321,7 @@ public class NameFloatLabelCell : _FloatLabelCell<String>, CellType {
         textField.autocapitalizationType = .words
         textField.keyboardType = .asciiCapable
     }
+    
 }
 
 public class EmailFloatLabelCell : _FloatLabelCell<String>, CellType {
@@ -334,6 +340,7 @@ public class EmailFloatLabelCell : _FloatLabelCell<String>, CellType {
         textField?.autocapitalizationType = .none
         textField?.keyboardType = .emailAddress
     }
+    
 }
 
 public class PhoneFloatLabelCell : _FloatLabelCell<String>, CellType {
@@ -350,6 +357,7 @@ public class PhoneFloatLabelCell : _FloatLabelCell<String>, CellType {
         super.setup()
         textField?.keyboardType = .phonePad
     }
+    
 }
 
 public class ZipCodeFloatLabelCell: _FloatLabelCell<String>, CellType {
@@ -368,10 +376,12 @@ public class ZipCodeFloatLabelCell: _FloatLabelCell<String>, CellType {
         textField.autocapitalizationType = .allCharacters
         textField.keyboardType = .numbersAndPunctuation
     }
+    
 }
 
 // MARK: Rows with formatter
 open class _IntFloatRow: FloatLabelRow<IntFloatLabelCell> {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
         let numberFormatter = NumberFormatter()
@@ -380,9 +390,11 @@ open class _IntFloatRow: FloatLabelRow<IntFloatLabelCell> {
         numberFormatter.minimumFractionDigits = 0
         formatter = numberFormatter
     }
+    
 }
 
 open class _DecimalFloatRow: FloatLabelRow<DecimalFloatLabelCell> {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
         let numberFormatter = NumberFormatter()
@@ -391,6 +403,7 @@ open class _DecimalFloatRow: FloatLabelRow<DecimalFloatLabelCell> {
         numberFormatter.minimumFractionDigits = 2
         formatter = numberFormatter
     }
+    
 }
 
 //MARK: FloatLabelRow
@@ -399,62 +412,93 @@ open class FloatLabelRow<Cell: CellType>: FormatteableRow<Cell> where Cell: Base
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
 
 public final class TextFloatLabelRow: FloatLabelRow<TextFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class IntFloatLabelRow: _IntFloatRow, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class DecimalFloatLabelRow: _DecimalFloatRow, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class URLFloatLabelRow: FloatLabelRow<URLFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class TwitterFloatLabelRow: FloatLabelRow<TwitterFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class AccountFloatLabelRow: FloatLabelRow<AccountFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class PasswordFloatLabelRow: FloatLabelRow<PasswordFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class NameFloatLabelRow: FloatLabelRow<NameFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class EmailFloatLabelRow: FloatLabelRow<EmailFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
+
 public final class PhoneFloatLabelRow: FloatLabelRow<PhoneFloatLabelCell>, RowType {
+    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
 
 public final class ZipCodeFloatLabelRow: FloatLabelRow<ZipCodeFloatLabelCell>, RowType {
+    
     required public init(tag: String?) {
         super.init(tag: tag)
     }
+    
 }
-
