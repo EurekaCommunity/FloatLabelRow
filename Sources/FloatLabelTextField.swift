@@ -25,6 +25,7 @@
 import UIKit
 
 @IBDesignable public class FloatLabelTextField: UITextField {
+    
     let animationDuration = 0.3
     var title = UILabel()
     
@@ -150,8 +151,6 @@ import UIKit
         return r.integral
     }
     
-    // MARK:- Public Methods
-    
     // MARK:- Private Methods
     private func setup() {
         borderStyle = UITextBorderStyle.none
@@ -203,4 +202,5 @@ import UIKit
             self.title.frame = r
         })
     }
+    
 }
