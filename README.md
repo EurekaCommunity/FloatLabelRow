@@ -15,8 +15,9 @@ By [Xmartlabs SRL](http://KarinaFernandez.com).
 
 FloatLabelRow is an Eureka custom row that shows a float label.
 
-
-<img src="Example/FloatLabelRow.gif" width="300"/>
+<p align='center'>
+  <img src='https://github.com/EurekaCommunity/FloatLabelRow/blob/1.0.0/Example/floatLabelRow.gif?raw=true' alt='FloatLabelRow example'/>
+</p>
 
 ## Usage
 
