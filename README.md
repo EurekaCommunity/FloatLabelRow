@@ -13,22 +13,65 @@ By [Xmartlabs SRL](http://KarinaFernandez.com).
 
 ## Introduction
 
-FloatLabelRow is a library to .......
+FloatLabelRow is an Eureka custom row that shows a float label.
 
-<!-- <img src="Example/FloatLabelRow.gif" width="300"/> -->
+
+<img src="Example/FloatLabelRow.gif" width="300"/>
 
 ## Usage
 
 ```swift
+import Eureka
 import FloatLabelRow
-..
-.
+
+
+class ExampleViewController: FormViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        form +++ Section()
+            <<< TextFloatLabelRow() {
+                $0.title = "Text Field"
+                $0.value = "Placeholder"
+            }
+            <<< IntFloatLabelRow() {
+                $0.title = "Int field"
+                $0.value = 2017
+            }
+            <<< DecimalFloatLabelRow() {
+                $0.title = "Decimal field"
+                $0.value = 2017
+                $0.formatter = DecimalFormatter()
+                $0.useFormatterDuringInput = true
+            }
+            +++ Section()
+            <<< DecimalFloatLabelRow() {
+                $0.title = "Scientific style"
+                $0.value = 2017
+                let formatter = NumberFormatter()
+                formatter.locale = .current
+                formatter.numberStyle = .scientific
+                $0.formatter = formatter
+            }
+            <<< IntFloatLabelRow() {
+                $0.title = "Spell out style"
+                $0.value = 2017
+                let formatter = NumberFormatter()
+                formatter.locale = .current
+                formatter.numberStyle = .spellOut
+                $0.formatter = formatter
+        }
+    }
+
+}
 ```
 
 ## Requirements
 
 * iOS 9.0+
 * Xcode 8.0+
+* Eureka 3.0+
 
 ## Getting involved
 
@@ -65,18 +108,13 @@ pod 'FloatLabelRow', '~> 1.0'
 To install FloatLabelRow, simply add the following line to your Cartfile:
 
 ```ogdl
-github "KarinaFernandez/FloatLabelRow" ~> 1.0
+github "EurekaCommunity/FloatLabelRow" ~> 1.0
 ```
 
 ## Author
 
-* [Xmartlabs SRL](https://github.com/KarinaFernandez) ([@KarinaFernandez](https://twitter.com/KarinaFernandez))
+* [Xmartlabs SRL](https://github.com/xmartlabs) ([@xmartlabs](https://twitter.com/xmartlabs))
 
-## FAQ
-
-#### How to .....
-
-You can do it by conforming to .....
 
 # Change Log
 
