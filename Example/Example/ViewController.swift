@@ -16,8 +16,9 @@ class HomeViewController : FormViewController {
         super.viewDidLoad()
         
         form +++
-            Section() {
-                $0.header = HeaderFooterView<LogoView>(.class)
+            Section() { section in
+                let header = HeaderFooterView<UIView>(.nibFile(name: "Header", bundle: Bundle.main))
+                section.header = header
             }
             <<< ButtonRow("Field row label examples") {
                 $0.title = $0.tag
@@ -28,6 +29,7 @@ class HomeViewController : FormViewController {
                 row.presentationMode = .segueName(segueName: "FormattersControllerSegue", onDismiss: nil)
             }
     }
+    
 }
 
 // MARK: Class RowsExampleViewController - Default provided FieldRow types
@@ -151,31 +153,4 @@ class FormatterExample : FormViewController {
         
     }
 
-}
-
-// MARK: Logo view
-class LogoViewNib: UIView {
-    
-    @IBOutlet weak var imageView: UIImageView!
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
-
-class LogoView: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        let imageView = UIImageView(image: UIImage(named: "Xmartlabs"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 318, height: 130)
-        imageView.autoresizingMask = .flexibleWidth
-        self.frame = CGRect(x: 0, y: 0, width: 318, height: 130)
-        imageView.contentMode = .scaleAspectFit
-        addSubview(imageView)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }

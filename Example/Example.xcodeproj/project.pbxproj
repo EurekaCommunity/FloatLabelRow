@@ -13,9 +13,9 @@
 		28F828D51C4B714D00330CF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F828D31C4B714D00330CF4 /* Main.storyboard */; };
 		28F828D71C4B714D00330CF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F828D61C4B714D00330CF4 /* Assets.xcassets */; };
 		28F828DA1C4B714D00330CF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F828D81C4B714D00330CF4 /* LaunchScreen.storyboard */; };
-		9A13035B1EC0AB2000D69281 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A13035A1EC0AB2000D69281 /* Header.xib */; };
 		9A61F6F61EBA6BF400CBE062 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6EF1EBA6A7800CBE062 /* Eureka.framework */; };
 		9A61F6F71EBA6BF400CBE062 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6EF1EBA6A7800CBE062 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AA9B7E11EF1762400F886A7 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA9B7E01EF1762400F886A7 /* Header.xib */; };
 		9AB0DCD51EBA6E37000AA210 /* FloatLabelRow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A61F6FF1EBA6DF100CBE062 /* FloatLabelRow.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,9 +68,9 @@
 		28F828DB1C4B714D00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Example/Info.plist; sourceTree = "<group>"; };
 		28F828E01C4B714D00330CF4 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F828E61C4B714D00330CF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A13035A1EC0AB2000D69281 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		9A61F6EF1EBA6A7800CBE062 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = ../Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		9A61F6F91EBA6DF100CBE062 /* FloatLabelRow.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FloatLabelRow.xcodeproj; path = ../FloatLabelRow.xcodeproj; sourceTree = "<group>"; };
+		9AA9B7E01EF1762400F886A7 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +139,7 @@
 		9A1303571EC0AAF600D69281 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				9A13035A1EC0AB2000D69281 /* Header.xib */,
+				9AA9B7E01EF1762400F886A7 /* Header.xib */,
 			);
 			name = Header;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A13035B1EC0AB2000D69281 /* Header.xib in Resources */,
+				9AA9B7E11EF1762400F886A7 /* Header.xib in Resources */,
 				28F828DA1C4B714D00330CF4 /* LaunchScreen.storyboard in Resources */,
 				28F828D71C4B714D00330CF4 /* Assets.xcassets in Resources */,
 				28F828D51C4B714D00330CF4 /* Main.storyboard in Resources */,
