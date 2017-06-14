@@ -40,11 +40,9 @@ class ExampleViewController: FormViewController {
                 $0.title = "Int field"
                 $0.value = 2017
             }
-            <<< DecimalFloatLabelRow() {
-                $0.title = "Decimal field"
-                $0.value = 2017
-                $0.formatter = DecimalFormatter()
-                $0.useFormatterDuringInput = true
+            <<< PasswordFloatLabelRow() {
+                $0.title = "Password field"
+                $0.value = "password"
             }
             +++ Section()
             <<< DecimalFloatLabelRow() {
