@@ -15,8 +15,9 @@ By [Xmartlabs SRL](http://KarinaFernandez.com).
 
 FloatLabelRow is an Eureka custom row that shows a float label.
 
-
-<img src="Example/FloatLabelRow.gif" width="300"/>
+<p align='center'>
+  <img src='https://github.com/EurekaCommunity/FloatLabelRow/blob/1.0.0/Example/floatLabelRow.gif?raw=true' alt='FloatLabelRow example'/>
+</p>
 
 ## Usage
 
@@ -77,11 +78,11 @@ class ExampleViewController: FormViewController {
 
 * If you **want to contribute** please feel free to **submit pull requests**.
 * If you **have a feature request** please **open an issue**.
-* If you **found a bug** or **need help** please **check older issues, [FAQ](#faq) and threads on [StackOverflow](http://stackoverflow.com/questions/tagged/FloatLabelRow) (Tag 'FloatLabelRow') before submitting an issue.**.
+* If you **found a bug** or **need help** please **check older issues, [FAQ](#faq) and threads on [StackOverflow](http://stackoverflow.com/questions/tagged/FloatLabelRow) (Tag 'FloatLabelRow') before submitting an issue**.
 
-Before contribute check the [CONTRIBUTING](https://github.com/KarinaFernandez/FloatLabelRow/blob/master/CONTRIBUTING.md) file for more info.
+Before contribute check the [CONTRIBUTING](https://github.com/EurekaCommunity/FloatLabelRow/blob/1.0.0/CONTRIBUTING.md) file for more info.
 
-If you use **FloatLabelRow** in your app We would love to hear about it! Drop us a line on [twitter](https://twitter.com/KarinaFernandez).
+If you use **FloatLabelRow** in your app we would love to hear about it! Drop us a line on [twitter](https://twitter.com/xmartlabs).
 
 ## Examples
 
@@ -115,6 +116,9 @@ github "EurekaCommunity/FloatLabelRow" ~> 1.0
 
 * [Xmartlabs SRL](https://github.com/xmartlabs) ([@xmartlabs](https://twitter.com/xmartlabs))
 
+## FAQ
+
+No content yet.
 
 # Change Log
 
