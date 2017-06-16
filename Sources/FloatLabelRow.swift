@@ -29,7 +29,7 @@ import MapKit
 import Eureka
 
 //MARK: FloatLabelCell
-public class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell where T: Equatable, T: InputTypeInitiable {
+open class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell where T: Equatable, T: InputTypeInitiable {
     
     public var textField: UITextField! { return floatLabelTextField }
     
