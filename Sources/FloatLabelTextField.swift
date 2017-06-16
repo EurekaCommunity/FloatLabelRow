@@ -57,16 +57,16 @@ import UIKit
         }
     }
     
-    var titleFont: UIFont = .systemFont(ofSize: 12.0) {
+    public var titleFont: UIFont = .systemFont(ofSize: 12.0) {
         didSet {
             title.font = titleFont
             title.sizeToFit()
         }
     }
     
-    @IBInspectable var hintYPadding:CGFloat = 0.0
+    @IBInspectable public var hintYPadding:CGFloat = 0.0
     
-    @IBInspectable var titleYPadding:CGFloat = 0.0 {
+    @IBInspectable public var titleYPadding:CGFloat = 0.0 {
         didSet {
             var r = title.frame
             r.origin.y = titleYPadding
@@ -74,18 +74,18 @@ import UIKit
         }
     }
     
-    @IBInspectable var titleTextColour:UIColor = .gray {
+    @IBInspectable public var titleTextColor:UIColor = .gray {
         didSet {
             if !isFirstResponder {
-                title.textColor = titleTextColour
+                title.textColor = titleTextColor
             }
         }
     }
     
-    @IBInspectable var titleActiveTextColour:UIColor! {
+    @IBInspectable public var titleActiveTextColor:UIColor! {
         didSet {
             if isFirstResponder {
-                title.textColor = titleActiveTextColour
+                title.textColor = titleActiveTextColor
             }
         }
     }
@@ -107,9 +107,9 @@ import UIKit
         setTitlePositionForTextAlignment()
         let isResp = isFirstResponder
         if isResp && !(text?.isEmpty ?? true) {
-            title.textColor = titleActiveTextColour
+            title.textColor = titleActiveTextColor
         } else {
-            title.textColor = titleTextColour
+            title.textColor = titleTextColor
         }
         // Should we show or hide the title label?
         if text?.isEmpty ?? true {
@@ -154,11 +154,11 @@ import UIKit
     // MARK:- Private Methods
     private func setup() {
         borderStyle = UITextBorderStyle.none
-        titleActiveTextColour = tintColor
+        titleActiveTextColor = tintColor
         // Set up title label
         title.alpha = 0.0
         title.font = titleFont
-        title.textColor = titleTextColour
+        title.textColor = titleTextColor
         if let str = placeholder, !str.isEmpty {
             title.text = str
             title.sizeToFit()
