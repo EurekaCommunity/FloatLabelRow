@@ -33,7 +33,7 @@ open class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell where
     
     public var textField: UITextField! { return floatLabelTextField }
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -66,7 +66,7 @@ open class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell where
         
         textLabel?.text = nil
         detailTextLabel?.text = nil
-        floatLabelTextField.attributedPlaceholder = NSAttributedString(string: row.title ?? "", attributes: [NSForegroundColorAttributeName: UIColor.lightGray])
+        floatLabelTextField.attributedPlaceholder = NSAttributedString(string: row.title ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         floatLabelTextField.text =  row.displayValueFor?(row.value)
         floatLabelTextField.isEnabled = !row.isDisabled
         floatLabelTextField.titleTextColor = .lightGray
@@ -91,7 +91,7 @@ open class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell where
         return NSLayoutConstraint.constraints(withVisualFormat: "H:|-[floatLabeledTextField]-|", options: .alignAllLastBaseline, metrics: metrics, views: views) + NSLayoutConstraint.constraints(withVisualFormat: "V:|-(vMargin)-[floatLabeledTextField]-(vMargin)-|", options: .alignAllLastBaseline, metrics: metrics, views: views)
     }
 
-    open func textFieldDidChange(_ textField: UITextField) {
+    @objc open func textFieldDidChange(_ textField: UITextField) {
         guard let textValue = textField.text else {
             row.value = nil
             return
@@ -175,14 +175,14 @@ open class _FloatLabelCell<T>: Cell<T>, UITextFieldDelegate, TextFieldCell where
 
 public class TextFloatLabelCell : _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     public override func setup() {
         super.setup()
         textField?.autocorrectionType = .default
@@ -194,14 +194,14 @@ public class TextFloatLabelCell : _FloatLabelCell<String>, CellType {
 
 public class IntFloatLabelCell : _FloatLabelCell<Int>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     public override func setup() {
         super.setup()
         textField?.autocorrectionType = .default
@@ -213,7 +213,7 @@ public class IntFloatLabelCell : _FloatLabelCell<Int>, CellType {
 
 public class DecimalFloatLabelCell : _FloatLabelCell<Double>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -232,7 +232,7 @@ public class DecimalFloatLabelCell : _FloatLabelCell<Double>, CellType {
 
 public class URLFloatLabelCell : _FloatLabelCell<URL>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -249,7 +249,7 @@ public class URLFloatLabelCell : _FloatLabelCell<URL>, CellType {
 
 public class TwitterFloatLabelCell : _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -268,7 +268,7 @@ public class TwitterFloatLabelCell : _FloatLabelCell<String>, CellType {
 
 public class AccountFloatLabelCell : _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -287,7 +287,7 @@ public class AccountFloatLabelCell : _FloatLabelCell<String>, CellType {
 
 public class PasswordFloatLabelCell : _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -307,7 +307,7 @@ public class PasswordFloatLabelCell : _FloatLabelCell<String>, CellType {
 
 public class NameFloatLabelCell : _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -326,7 +326,7 @@ public class NameFloatLabelCell : _FloatLabelCell<String>, CellType {
 
 public class EmailFloatLabelCell : _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -345,7 +345,7 @@ public class EmailFloatLabelCell : _FloatLabelCell<String>, CellType {
 
 public class PhoneFloatLabelCell : _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
@@ -362,14 +362,14 @@ public class PhoneFloatLabelCell : _FloatLabelCell<String>, CellType {
 
 public class ZipCodeFloatLabelCell: _FloatLabelCell<String>, CellType {
     
-    required public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     open override func update() {
         super.update()
         textField.autocorrectionType = .no
